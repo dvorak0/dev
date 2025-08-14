@@ -39,6 +39,7 @@ if ! docker ps -a --format '{{.Names}}' | grep -qx "${CONTAINER_NAME}"; then
     -e GDK_SCALE="${GDK_SCALE}" \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /dev:/dev \
+    -v /etc/localtime:/etc/localtime \
     --device-cgroup-rule='c 81:* rmw' \
     --device-cgroup-rule='c 234:* rmw' \
     -v "${PROJECT_MOUNT}":"/${DIR_NAME_RAW}" \
