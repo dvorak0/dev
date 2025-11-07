@@ -15,7 +15,7 @@ PROJECT_MOUNT="${PROJECT_DIR}"
 # --- Pick GPU flags based on architecture ---
 ARCH="$(uname -m)"
 if [[ "${ARCH}" == "x86_64" ]]; then
-    GPU_ARGS=( --gpus all )
+    GPU_ARGS=( --device nvidia.com/gpu=all )
 elif [[ "${ARCH}" == "aarch64" || "${ARCH}" == "arm64" ]]; then
     GPU_ARGS=( --runtime nvidia )
 else
