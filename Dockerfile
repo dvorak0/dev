@@ -7,6 +7,11 @@ ARG USER_NAME=dev
 ARG DIR_NAME=project
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN sed -i \
+  -e 's|http://archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' \
+  -e 's|http://security.ubuntu.com/ubuntu|https://security.ubuntu.com/ubuntu|g' \
+  /etc/apt/sources.list
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     sudo build-essential cmake git git-lfs openssh-client \
     nano vim less tree htop tmux curl wget zip unzip \
